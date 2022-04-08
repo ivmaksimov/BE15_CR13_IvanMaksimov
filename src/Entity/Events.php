@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Events
  *
@@ -111,6 +112,9 @@ class Events
      * @ORM\Column(name="type", type="string", length=255, nullable=false)
      */
     private $type;
+
+
+
 
     public function getId(): ?int
     {
@@ -272,6 +276,4 @@ class Events
 
         return $this;
     }
-
-
 }

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %} {% block body %}
+<div class="text-center text-danger" style="margin: 5rem">
+  <h1 class="card-title">{{ events.name }}</h1>
+</div>
+<div class="text-center d-flex">
+  <div style="width: 800px">
+    <p class="card-text">Date: {{ events.date|date('F j, Y') }}</p>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Start from {{ events.time|date("H:i") }}</li>
+
+      <li class="list-group-item">Capacity: {{ events.capacity }} people</li>
+      <li class="list-group-item">
+        Event Location: {{ events.address }} {{ events.zip }} {{ events.city }}
+      </li>
+      <li class="list-group-item">Contact Us Phone: {{ events.phone }}</li>
+      <li class="list-group-item">Contact Us Email: {{ events.email }}</li>
+      <li class="list-group-item">Visit: {{ events.url }}</li>
+      <li class="list-group-item">Event Type: {{ events.type }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <img
+      src="{{asset('/pictures/' ~ events.picture )}}"
+      style="width: fit-content"
+      alt="..."
+    />
+  </div>
+  <div style="width: 30%">
+    <li class="list-group-item">
+      {{ events.description }}
+    </li>
+    <div style="margin-top: 6rem">
+      <a class="btn btn-info" href="/">Back</a>
+      <a class="btn btn-info" href="../edit/{{ events.id }}">Edit</a>
+      <a class="btn btn-info" href="../delete/{{ events.id }}">Delete</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
