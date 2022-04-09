@@ -51,6 +51,19 @@ class EventsController extends AbstractController
         return $this->render('events/festival.html.twig', array("events" => $events));
     }
 
+    #[Route('/opera', name: 'opera_events')]
+    public function opera(ManagerRegistry $doctrine,)
+    {
+        $events = $doctrine->getRepository(Events::class)->findBy(['type' => 'opera']);
+        return $this->render('events/opera.html.twig', array("events" => $events));
+    }
+
+    #[Route('/learning', name: 'learning_events')]
+    public function learning(ManagerRegistry $doctrine,)
+    {
+        $events = $doctrine->getRepository(Events::class)->findBy(['type' => 'learning']);
+        return $this->render('events/learning.html.twig', array("events" => $events));
+    }
 
 
     #[Route('/create', name: 'create_action')]
